@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Untitled3</title>
+<title>tutorial</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,6 +13116,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://wuslash0.github.io">https://wuslash0.github.io</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Group member:Tianhao Wu, Zekun Wu</p>
 <p>Data sets: students performance ; bad driver</p>
 <p>We choose the data of "bad driver" because this dataset is mainly focused on the number of accidents each driver involved and how many of them are caused by multiple reasons like alcohol or speeding and so on. This dataset includes all the 52 states in America, which means the size of the data is large. Most of the data number is from national Commissioners or administration.  We can analyze the relationship between each driver's accident rate and their insurance rates, thus we can evaluate how well the insurance company's quote system works. For example, if we find out that a state has a relatively high insurance rate but the accident rates are not comparably high, we can then conclude that the insurance company is not fair to the drivers in that state. This is a social issue that is related to lots of citizens. This dataset has tons of numerical data. Some of them are an interval, as the “number of drivers involved in fatal collisions per billion miles”. Some of them are Ratio, like “Percentage Of Drivers Involved In Fatal Collisions Who Were Speeding”. The size of this data set is perfect for our tutorial. If the dataset is too large, it will take too much time to compile, which is not good for presenting.</p>
@@ -13123,6 +13131,1369 @@ div#notebook {
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/bad-drivers.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>State</th>
+      <th>Number of drivers involved in fatal collisions per billion miles</th>
+      <th>Percentage Of Drivers Involved In Fatal Collisions Who Were Speeding</th>
+      <th>Percentage Of Drivers Involved In Fatal Collisions Who Were Alcohol-Impaired</th>
+      <th>Percentage Of Drivers Involved In Fatal Collisions Who Were Not Distracted</th>
+      <th>Percentage Of Drivers Involved In Fatal Collisions Who Had Not Been Involved In Any Previous Accidents</th>
+      <th>Car Insurance Premiums ($)</th>
+      <th>Losses incurred by insurance companies for collisions per insured driver ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>18.8</td>
+      <td>39</td>
+      <td>30</td>
+      <td>96</td>
+      <td>80</td>
+      <td>784.55</td>
+      <td>145.08</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska</td>
+      <td>18.1</td>
+      <td>41</td>
+      <td>25</td>
+      <td>90</td>
+      <td>94</td>
+      <td>1053.48</td>
+      <td>133.93</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arizona</td>
+      <td>18.6</td>
+      <td>35</td>
+      <td>28</td>
+      <td>84</td>
+      <td>96</td>
+      <td>899.47</td>
+      <td>110.35</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arkansas</td>
+      <td>22.4</td>
+      <td>18</td>
+      <td>26</td>
+      <td>94</td>
+      <td>95</td>
+      <td>827.34</td>
+      <td>142.39</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>California</td>
+      <td>12.0</td>
+      <td>35</td>
+      <td>28</td>
+      <td>91</td>
+      <td>89</td>
+      <td>878.41</td>
+      <td>165.63</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Colorado</td>
+      <td>13.6</td>
+      <td>37</td>
+      <td>28</td>
+      <td>79</td>
+      <td>95</td>
+      <td>835.50</td>
+      <td>139.91</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Connecticut</td>
+      <td>10.8</td>
+      <td>46</td>
+      <td>36</td>
+      <td>87</td>
+      <td>82</td>
+      <td>1068.73</td>
+      <td>167.02</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Delaware</td>
+      <td>16.2</td>
+      <td>38</td>
+      <td>30</td>
+      <td>87</td>
+      <td>99</td>
+      <td>1137.87</td>
+      <td>151.48</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>District of Columbia</td>
+      <td>5.9</td>
+      <td>34</td>
+      <td>27</td>
+      <td>100</td>
+      <td>100</td>
+      <td>1273.89</td>
+      <td>136.05</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Florida</td>
+      <td>17.9</td>
+      <td>21</td>
+      <td>29</td>
+      <td>92</td>
+      <td>94</td>
+      <td>1160.13</td>
+      <td>144.18</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Georgia</td>
+      <td>15.6</td>
+      <td>19</td>
+      <td>25</td>
+      <td>95</td>
+      <td>93</td>
+      <td>913.15</td>
+      <td>142.80</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Hawaii</td>
+      <td>17.5</td>
+      <td>54</td>
+      <td>41</td>
+      <td>82</td>
+      <td>87</td>
+      <td>861.18</td>
+      <td>120.92</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Idaho</td>
+      <td>15.3</td>
+      <td>36</td>
+      <td>29</td>
+      <td>85</td>
+      <td>98</td>
+      <td>641.96</td>
+      <td>82.75</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Illinois</td>
+      <td>12.8</td>
+      <td>36</td>
+      <td>34</td>
+      <td>94</td>
+      <td>96</td>
+      <td>803.11</td>
+      <td>139.15</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Indiana</td>
+      <td>14.5</td>
+      <td>25</td>
+      <td>29</td>
+      <td>95</td>
+      <td>95</td>
+      <td>710.46</td>
+      <td>108.92</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Iowa</td>
+      <td>15.7</td>
+      <td>17</td>
+      <td>25</td>
+      <td>97</td>
+      <td>87</td>
+      <td>649.06</td>
+      <td>114.47</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kansas</td>
+      <td>17.8</td>
+      <td>27</td>
+      <td>24</td>
+      <td>77</td>
+      <td>85</td>
+      <td>780.45</td>
+      <td>133.80</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Kentucky</td>
+      <td>21.4</td>
+      <td>19</td>
+      <td>23</td>
+      <td>78</td>
+      <td>76</td>
+      <td>872.51</td>
+      <td>137.13</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Louisiana</td>
+      <td>20.5</td>
+      <td>35</td>
+      <td>33</td>
+      <td>73</td>
+      <td>98</td>
+      <td>1281.55</td>
+      <td>194.78</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Maine</td>
+      <td>15.1</td>
+      <td>38</td>
+      <td>30</td>
+      <td>87</td>
+      <td>84</td>
+      <td>661.88</td>
+      <td>96.57</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Maryland</td>
+      <td>12.5</td>
+      <td>34</td>
+      <td>32</td>
+      <td>71</td>
+      <td>99</td>
+      <td>1048.78</td>
+      <td>192.70</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Massachusetts</td>
+      <td>8.2</td>
+      <td>23</td>
+      <td>35</td>
+      <td>87</td>
+      <td>80</td>
+      <td>1011.14</td>
+      <td>135.63</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Michigan</td>
+      <td>14.1</td>
+      <td>24</td>
+      <td>28</td>
+      <td>95</td>
+      <td>77</td>
+      <td>1110.61</td>
+      <td>152.26</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Minnesota</td>
+      <td>9.6</td>
+      <td>23</td>
+      <td>29</td>
+      <td>88</td>
+      <td>88</td>
+      <td>777.18</td>
+      <td>133.35</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Mississippi</td>
+      <td>17.6</td>
+      <td>15</td>
+      <td>31</td>
+      <td>10</td>
+      <td>100</td>
+      <td>896.07</td>
+      <td>155.77</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Missouri</td>
+      <td>16.1</td>
+      <td>43</td>
+      <td>34</td>
+      <td>92</td>
+      <td>84</td>
+      <td>790.32</td>
+      <td>144.45</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Montana</td>
+      <td>21.4</td>
+      <td>39</td>
+      <td>44</td>
+      <td>84</td>
+      <td>85</td>
+      <td>816.21</td>
+      <td>85.15</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Nebraska</td>
+      <td>14.9</td>
+      <td>13</td>
+      <td>35</td>
+      <td>93</td>
+      <td>90</td>
+      <td>732.28</td>
+      <td>114.82</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Nevada</td>
+      <td>14.7</td>
+      <td>37</td>
+      <td>32</td>
+      <td>95</td>
+      <td>99</td>
+      <td>1029.87</td>
+      <td>138.71</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>New Hampshire</td>
+      <td>11.6</td>
+      <td>35</td>
+      <td>30</td>
+      <td>87</td>
+      <td>83</td>
+      <td>746.54</td>
+      <td>120.21</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>New Jersey</td>
+      <td>11.2</td>
+      <td>16</td>
+      <td>28</td>
+      <td>86</td>
+      <td>78</td>
+      <td>1301.52</td>
+      <td>159.85</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>New Mexico</td>
+      <td>18.4</td>
+      <td>19</td>
+      <td>27</td>
+      <td>67</td>
+      <td>98</td>
+      <td>869.85</td>
+      <td>120.75</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>New York</td>
+      <td>12.3</td>
+      <td>32</td>
+      <td>29</td>
+      <td>88</td>
+      <td>80</td>
+      <td>1234.31</td>
+      <td>150.01</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>North Carolina</td>
+      <td>16.8</td>
+      <td>39</td>
+      <td>31</td>
+      <td>94</td>
+      <td>81</td>
+      <td>708.24</td>
+      <td>127.82</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>North Dakota</td>
+      <td>23.9</td>
+      <td>23</td>
+      <td>42</td>
+      <td>99</td>
+      <td>86</td>
+      <td>688.75</td>
+      <td>109.72</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Ohio</td>
+      <td>14.1</td>
+      <td>28</td>
+      <td>34</td>
+      <td>99</td>
+      <td>82</td>
+      <td>697.73</td>
+      <td>133.52</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Oklahoma</td>
+      <td>19.9</td>
+      <td>32</td>
+      <td>29</td>
+      <td>92</td>
+      <td>94</td>
+      <td>881.51</td>
+      <td>178.86</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Oregon</td>
+      <td>12.8</td>
+      <td>33</td>
+      <td>26</td>
+      <td>67</td>
+      <td>90</td>
+      <td>804.71</td>
+      <td>104.61</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Pennsylvania</td>
+      <td>18.2</td>
+      <td>50</td>
+      <td>31</td>
+      <td>96</td>
+      <td>88</td>
+      <td>905.99</td>
+      <td>153.86</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Rhode Island</td>
+      <td>11.1</td>
+      <td>34</td>
+      <td>38</td>
+      <td>92</td>
+      <td>79</td>
+      <td>1148.99</td>
+      <td>148.58</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>South Carolina</td>
+      <td>23.9</td>
+      <td>38</td>
+      <td>41</td>
+      <td>96</td>
+      <td>81</td>
+      <td>858.97</td>
+      <td>116.29</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>South Dakota</td>
+      <td>19.4</td>
+      <td>31</td>
+      <td>33</td>
+      <td>98</td>
+      <td>86</td>
+      <td>669.31</td>
+      <td>96.87</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Tennessee</td>
+      <td>19.5</td>
+      <td>21</td>
+      <td>29</td>
+      <td>82</td>
+      <td>81</td>
+      <td>767.91</td>
+      <td>155.57</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Texas</td>
+      <td>19.4</td>
+      <td>40</td>
+      <td>38</td>
+      <td>91</td>
+      <td>87</td>
+      <td>1004.75</td>
+      <td>156.83</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Utah</td>
+      <td>11.3</td>
+      <td>43</td>
+      <td>16</td>
+      <td>88</td>
+      <td>96</td>
+      <td>809.38</td>
+      <td>109.48</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Vermont</td>
+      <td>13.6</td>
+      <td>30</td>
+      <td>30</td>
+      <td>96</td>
+      <td>95</td>
+      <td>716.20</td>
+      <td>109.61</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Virginia</td>
+      <td>12.7</td>
+      <td>19</td>
+      <td>27</td>
+      <td>87</td>
+      <td>88</td>
+      <td>768.95</td>
+      <td>153.72</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Washington</td>
+      <td>10.6</td>
+      <td>42</td>
+      <td>33</td>
+      <td>82</td>
+      <td>86</td>
+      <td>890.03</td>
+      <td>111.62</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>West Virginia</td>
+      <td>23.8</td>
+      <td>34</td>
+      <td>28</td>
+      <td>97</td>
+      <td>87</td>
+      <td>992.61</td>
+      <td>152.56</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Wisconsin</td>
+      <td>13.8</td>
+      <td>36</td>
+      <td>33</td>
+      <td>39</td>
+      <td>84</td>
+      <td>670.31</td>
+      <td>106.62</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Wyoming</td>
+      <td>17.4</td>
+      <td>42</td>
+      <td>32</td>
+      <td>81</td>
+      <td>90</td>
+      <td>791.14</td>
+      <td>122.04</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./data/StudentsPerformance.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gender</th>
+      <th>race/ethnicity</th>
+      <th>parental level of education</th>
+      <th>lunch</th>
+      <th>test preparation course</th>
+      <th>math score</th>
+      <th>reading score</th>
+      <th>writing score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>bachelor's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>72</td>
+      <td>72</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>69</td>
+      <td>90</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>master's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>90</td>
+      <td>95</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>male</td>
+      <td>group A</td>
+      <td>associate's degree</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>47</td>
+      <td>57</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>76</td>
+      <td>78</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>associate's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>71</td>
+      <td>83</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>88</td>
+      <td>95</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>male</td>
+      <td>group B</td>
+      <td>some college</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>40</td>
+      <td>43</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>64</td>
+      <td>64</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>38</td>
+      <td>60</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>associate's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>58</td>
+      <td>54</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>associate's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>40</td>
+      <td>52</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>65</td>
+      <td>81</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>male</td>
+      <td>group A</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>78</td>
+      <td>72</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>female</td>
+      <td>group A</td>
+      <td>master's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>50</td>
+      <td>53</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>69</td>
+      <td>75</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>88</td>
+      <td>89</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>some high school</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>18</td>
+      <td>32</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>master's degree</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>46</td>
+      <td>42</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>associate's degree</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>54</td>
+      <td>58</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>66</td>
+      <td>69</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>some college</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>65</td>
+      <td>75</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>44</td>
+      <td>54</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>69</td>
+      <td>73</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>bachelor's degree</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>74</td>
+      <td>71</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>male</td>
+      <td>group A</td>
+      <td>master's degree</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>73</td>
+      <td>74</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>male</td>
+      <td>group B</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>69</td>
+      <td>54</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>bachelor's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>67</td>
+      <td>69</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>70</td>
+      <td>70</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>master's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>62</td>
+      <td>70</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>970</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>bachelor's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>89</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>971</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>78</td>
+      <td>72</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>972</th>
+      <td>female</td>
+      <td>group A</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>53</td>
+      <td>50</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>973</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>some college</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>49</td>
+      <td>65</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>974</th>
+      <td>female</td>
+      <td>group A</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>54</td>
+      <td>63</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>975</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>64</td>
+      <td>82</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>976</th>
+      <td>male</td>
+      <td>group B</td>
+      <td>some college</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>60</td>
+      <td>62</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>977</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>associate's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>62</td>
+      <td>65</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>55</td>
+      <td>41</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>979</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>associate's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>91</td>
+      <td>95</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <th>980</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>8</td>
+      <td>24</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>981</th>
+      <td>male</td>
+      <td>group D</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>81</td>
+      <td>78</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>982</th>
+      <td>male</td>
+      <td>group B</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>79</td>
+      <td>85</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>983</th>
+      <td>female</td>
+      <td>group A</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>78</td>
+      <td>87</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>984</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>74</td>
+      <td>75</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>985</th>
+      <td>male</td>
+      <td>group A</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>57</td>
+      <td>51</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>986</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>associate's degree</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>40</td>
+      <td>59</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>987</th>
+      <td>male</td>
+      <td>group E</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>81</td>
+      <td>75</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>988</th>
+      <td>female</td>
+      <td>group A</td>
+      <td>some high school</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>44</td>
+      <td>45</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>989</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>some college</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>67</td>
+      <td>86</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>990</th>
+      <td>male</td>
+      <td>group E</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>86</td>
+      <td>81</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>female</td>
+      <td>group B</td>
+      <td>some high school</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>65</td>
+      <td>82</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>992</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>associate's degree</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>55</td>
+      <td>76</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>bachelor's degree</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>62</td>
+      <td>72</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>male</td>
+      <td>group A</td>
+      <td>high school</td>
+      <td>standard</td>
+      <td>none</td>
+      <td>63</td>
+      <td>63</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>female</td>
+      <td>group E</td>
+      <td>master's degree</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>88</td>
+      <td>99</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>male</td>
+      <td>group C</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>62</td>
+      <td>55</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>female</td>
+      <td>group C</td>
+      <td>high school</td>
+      <td>free/reduced</td>
+      <td>completed</td>
+      <td>59</td>
+      <td>71</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>some college</td>
+      <td>standard</td>
+      <td>completed</td>
+      <td>68</td>
+      <td>78</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>female</td>
+      <td>group D</td>
+      <td>some college</td>
+      <td>free/reduced</td>
+      <td>none</td>
+      <td>77</td>
+      <td>86</td>
+      <td>86</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
